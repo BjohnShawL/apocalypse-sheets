@@ -1,0 +1,28 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+
+<body>
+	<div class = "container">
+		<h4>Register</h4>
+		<br>
+
+		<form method=post action="/register">
+            {{ form.hidden_tag() }}
+			<dl>
+				{{ form.username() }}
+                {{ form.email() }}
+                {{ form.password }}
+                {{ form.confirm }}
+			</dl>
+			<p><input type=submit value=Register></p>
+		</form>
+
+		{% if error %}
+			<p class="error"><strong>Error:</strong>{{error}}</p>
+		{% endif %}
+
+	</div>
+</body>
+
+{% endblock %}

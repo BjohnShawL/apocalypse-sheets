@@ -1,0 +1,54 @@
+{% extends 'base.html.j2' %}
+{% block content %}
+    <form method="POST" action="">
+    <h3>{{ page_title }}</h3>
+        <div class="responsive-three-columns">
+            <div>
+                {{ form.hidden_tag() }}
+                {# Name and Playbook #}
+                <table class="form-table">
+                    <tr>
+                    <th class="d-none">Label Column</th>
+                     <th class="d-none">Field Column</th>
+                    </tr>
+                    <tr>
+                        <td>{{ form.name.label }}</td>
+                        <td>{{ form.name() }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.look.label }}</td>
+                        <td>{{ form.look() }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.playbook_id.label }}</td>
+                        <td>{{ form.playbook_id() }}</td>
+                    </tr>
+                </table>
+                <div id="playbook-desc"></div>
+                <br/>
+                <hr>
+                {# Stats #}
+                <div class="statblock">
+                    {% for stat in form.stats if stat.widget.input_type != 'hidden' %}
+                        {{ snippets.stat_display(stat) }}
+                    {% endfor %}
+
+                </div>
+                <hr>
+
+                {# Luck #}
+                <h4>Luck</h4>
+                <div class="statcheck">
+                    {% for entry in form.luck %}
+                        {{ entry }}
+                    {% endfor %}
+                </div>
+            {# Harm       #}
+
+            {# Experience #}
+
+            </div>
+        </div>
+        <input type="submit" value="Save Character">
+    </form>
+{% endblock %}

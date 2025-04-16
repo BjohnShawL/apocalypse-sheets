@@ -1,0 +1,8 @@
+/.idea/dataSources/*
+/.idea/workspace.xml
+/.idea/dataSources.local.xml
+/.idea/dataSources.xml
+/instance/sheets.db
+/.venv/
+__pycache__/
+

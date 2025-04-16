@@ -1,0 +1,45 @@
+{% macro build_menu(menu,selected) %}
+<div id="basemenu" class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="height:inherit;">
+
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <span class="fs-4">Pile of Sheets</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        {% for item in menu %}
+                    {% if item.is_category_item %}
+                    	<button onclick=toggleSubMenu(this) class="dropdown-btn">
+                        <span>{{ item.name }}</span>
+                        </button>
+                        <ul class="sub-menu flex-column {% if selected in item.subitem_names %} show {% endif %}">
+                            <div>
+                                 {% for subitem in item.items %}
+                                    <li class="nav-item">
+                                    <a href="{{subitem.url}}" class="nav-link text-white {% if selected == subitem.name %}nav-link active {% endif %}">
+                                    <span>{{ subitem.name }}</span>
+                                    </a>
+                                    </li>
+                                {% endfor %}
+                            </div>
+                        </ul>
+
+                    {% else %}
+                        <li class="nav-item">
+                          <a href="{{ item.url }}" class="nav-link text-white {% if selected == item.name %}nav-link active {% endif %}">
+                          <span>{{ item.name }}</span>
+                        </a>
+                        </li>
+
+                    {% endif %}
+
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro %}
+
+{% macro stat_display(stat) %}
+    <div class="stat_circ">
+        {{ stat() }}
+        {{ stat.label }}
+    </div>
+{% endmacro %}

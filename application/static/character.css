@@ -1,0 +1,46 @@
+/* container */
+.responsive-three-columns {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/* columns */
+.responsive-three-columns > * {
+    width:100%;
+    padding:1rem;
+}
+
+.statblock{
+    display: inline-grid;
+}
+
+.statcheck {
+  display: inline-flex;
+  width: 30%;
+  margin:5px;
+  text-align: center;
+}
+
+.stat_circ{
+    display: inline-flex;
+    width: 30%;
+    margin: .25rem;
+    align-items:center;
+}
+
+.stat_circ > :first-child{
+    margin-right:.5rem
+}
+
+.statcheck input {
+    margin: .25rem;
+}
+
+
+
+/* tablet breakpoint */
+@media (min-width:768px) {
+    .responsive-three-columns > * {
+        width:calc(100% / 3);
+    }
+}

@@ -1,0 +1,14 @@
+{% extends 'base.html.j2' %}
+{#This uses a list of CharacterItems, not a list of Characters#}
+{% block content %}
+
+<table>
+    {% for character in characters %}
+    	<tr>
+            <td>{{ character.name }}</td> <td>{{ character.playbook_name }}</td> <td>{{ character.harm }}</td> <td>{{ character.experience }}</td> <td>
+            <a href="{{ character.link }}">Edit</a></td>
+        </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

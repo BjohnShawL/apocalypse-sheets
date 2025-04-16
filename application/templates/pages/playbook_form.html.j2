@@ -1,0 +1,28 @@
+{% extends 'base.html.j2' %}
+{% block content %}
+    <div class="playbook-container">
+        <div class="playbook-element">
+            <h2>{{ page_title }}</h2>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                {# Name and Description #}
+                <table class="form-table">
+                    <tr>
+                    <th class="d-none">Label Column</th>
+                     <th class="d-none">Field Column</th>
+                    </tr>
+                    <tr>
+                        <td>{{ form.name.label }}</td>
+                        <td>{{ form.name() }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.description.label }}</td>
+                        <td>{{ form.description() }}</td>
+                    </tr>
+                </table>
+                <br>
+                <input type="submit" value="Save Playbook">
+            </form>
+        </div>
+    </div>
+{% endblock %}

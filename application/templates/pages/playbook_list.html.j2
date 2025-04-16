@@ -1,0 +1,15 @@
+{% extends 'base.html.j2' %}
+{#This uses a list of PlaybookItems, not a list of Playbooks#}
+{% block content %}
+
+<table>
+    {% for playbook in playbooks %}
+    	<tr>
+            <td>{{ playbook.name }}</td>
+            <td>{{ playbook.owner }}</td>
+            <td><a href="{{ playbook.link }}">Edit</a></td>
+        </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

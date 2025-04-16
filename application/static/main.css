@@ -1,0 +1,139 @@
+:root{
+    --text-clr:#e6e6ef;
+    --hover-clr: rgba(143, 156, 153, 0.33);
+    --accent-clr: #5e63ff;
+    secondary-txt-clr: #b0b3c1;
+}
+
+*{
+    margin:0;
+    box-sizing:border-box;
+}
+/*.wrapper{*/
+/*    display:grid;*/
+/*    min-height:100%;*/
+/*    grid-template-areas:*/
+/*    'menu header header header header header'*/
+/*    'menu menu menu mainArea mainArea mainArea mainArea right'*/
+/*    'menu menu menu footer footer footer footer footer';*/
+/*  gap: 10px;*/
+/*  background-color: white;*/
+/*  padding: 10px;*/
+/*}*/
+.wrapper {
+    min-height:100%;
+    display: grid;
+    grid-template-columns: .5fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: .5fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0 0;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "menu header header header header right"
+    "menu mainArea mainArea mainArea mainArea right"
+    "menu mainArea mainArea mainArea mainArea right"
+    "menu mainArea mainArea mainArea mainArea right"
+    "menu mainArea mainArea mainArea mainArea right"
+    "menu footer footer footer footer right";
+}
+
+
+.header{
+    grid-area:header;
+    text-align:center;
+    display:inline-block;
+    min-height:80px
+}
+
+/*Handles the sidebar menu*/
+.sidenav {
+    grid-area:menu;
+    height: 100%;
+    width: 160px;
+    z-index: 1;
+    top:0;
+    left:0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: 3px solid cadetblue;
+    color: var(--text-clr);
+    position:sticky;
+    align-self:start;
+}
+
+.sidenav ul{
+    list-style:none;
+    display:flex;
+    justify-content: flex-end;
+    margin-bottom:16px
+}
+
+#basemenu a, #basemenu .dropdown-btn {
+    border-radius: .5em;
+    padding: .85em;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap: 1em;
+    color:var(--text-clr);
+}
+.dropdown-btn {
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    font:inherit;
+    cursor:pointer;
+}
+
+#basemenu a span, #basemenu .dropdown-btn span {
+    flex-grow: 1;
+
+}
+#basemenu a span:hover, #basemenu .dropdown-btn span:hover {
+    background-color: var(--hover-clr)
+
+}
+
+#basemenu .sub-menu{
+    display:grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+
+    > div{
+        overflow:hidden;
+    }
+}
+
+#basemenu .sub-menu.show{
+    grid-template-rows:1fr;
+}
+
+/* Style page content */
+.main {
+    grid-area:mainArea;
+  padding: 0 10px;
+}
+
+.info{
+    grid-area:right;
+    width:160px
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.playbook-container {
+    display: grid;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+.playbook-element {
+    display:inline-block;
+}
+.form-table {
+    border-collapse: separate;
+    border-spacing: 5px
+}
